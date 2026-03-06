@@ -24,7 +24,7 @@ if st.button("Laden"):
         if st.button("Details anzeigen"):
             st.session_state.selected_stop_id = selected
 
-if st.session_state.selected_stop_id:
+if st.session_state.get("selected_stop_id"):
     st.subheader(f"Details: {st.session_state.selected_stop_id}")
     details = fetch_json(f"{base_url}/api/stops/{st.session_state.selected_stop_id}")
     st.json(details)
